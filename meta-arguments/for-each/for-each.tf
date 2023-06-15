@@ -9,11 +9,11 @@ resource "aws_iam_user" "iam" {
   name     = each.key
 }
 
-resource "aws_instance" "myec2" {
+resource "aws_instance" "ec2" {
   ami = lookup(var.AMIS, var.AWS_REGION)
   for_each = {
-    key1 = "t2.micro"
-    key2 = "t2.medium"
+    t2-micro = "t2.micro"
+    t2-medium = "t2.medium"
   }
   instance_type = each.value
   key_name      = each.key

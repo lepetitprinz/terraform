@@ -17,6 +17,7 @@ output "arns" {
   value = aws_iam_user.lb[*].arn
 }
 
+# Using zipmap function
 output "combined" {
   value = zipmap(aws_iam_user.lb[*].name, aws_iam_user.lb[*].arn)
 }
